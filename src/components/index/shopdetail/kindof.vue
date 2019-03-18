@@ -1,16 +1,15 @@
 <template>
     <div id="kindof">
-        <mt-header fixed :title="largeClass">
+        <mt-header fixed :title="mk">
         <div slot="left">
             <mt-button  icon="back" @click="$router.back(-1)"></mt-button>
         </div>
         <!-- <mt-button icon="more" slot="right"></mt-button> -->
         </mt-header>
-        <mt-loadmore :top-method="loadTop" :bottom-method="loadBottom" :bottom-all-loaded="allLoaded" ref="loadmore">
+        <!-- <mt-loadmore :top-method="loadTop" :bottom-method="loadBottom" :bottom-all-loaded="allLoaded" ref="loadmore">
         <ul>
-            <li v-for="item in list" :key="item">{{ item }}</li>
         </ul>
-        </mt-loadmore>
+        </mt-loadmore> -->
     </div>
 </template>
 
@@ -19,28 +18,38 @@ const qs =require('qs')
 export default {
     data(){
         return {
-            largeClass:'',//大类
-            list:''
+            mk:'',//mk
+           
         }
     },
     methods:{
         getSearch(){
-         this.largeClass = this.$route.params.largeclass
+         this.mk = this.$route.params.mk
         },
         getInfos(){
             let data ={
               	type:1,
-                fineclass:this.largeClass,
-                indexs:indexs
+                indexs:this.mk,
             }
-            this.$http.post().then(res=>{
+            this.$http.post('/commodity/selectBySelect').then(res=>{
                 console.log(res.data.data)
                 }
             )
-        }
+        },
+        // loadTop(){
+        //     console.log('刷新')
+        //      this.$refs.loadmore.onTopLoaded();
+        // },
+        // loadBottom(){
+        //    console.log('加载更过') 
+        //    this.allLoaded = true// if all data are loaded
+        //     this.$refs.loadmore.onBottomLoaded()
+
+        // },
     },
     created(){
        this.getSearch()
+       this. getInfos()
     }
 }
 </script>

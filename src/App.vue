@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <mt-header fixed title="5941商城"></mt-header>
+    <mt-header fixed title="5941商城 "></mt-header>
     <router-view/>
         <mt-tabbar fixed v-model="selected" v-show="$route.meta.navShow">
         <mt-tab-item  id="主页">
           <img slot="icon" src="./assets/icon/index.png">
               主页
           </mt-tab-item>
-          <mt-tab-item id="分类">
+          <!-- <mt-tab-item id="分类">
               <img slot="icon" src="./assets/icon/type.png">
               分类
-          </mt-tab-item>
+          </mt-tab-item> -->
           <mt-tab-item  id="购物车">
               <img slot="icon" src="./assets/icon/shoppingcart.png">
               购物车
@@ -43,13 +43,11 @@ export default {
         d = Math.floor(d / 16);
         return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
     })
-    // console.log(uuid)
     this.$store.state.UID = uuid
     }
     },
     created(){
       this. generateUUID()
-      // console.log(this.$store)
     },
   store,
   watch:{
@@ -58,9 +56,9 @@ export default {
          case '主页':
               this.$router.push('/index')
               break
-        case '分类':
-              this.$router.push('/type')
-              break
+        // case '分类':
+        //       this.$router.push('/type')
+        //       break
         case '购物车':
               this.$router.push('/shoppingcart')
               break 
@@ -106,6 +104,11 @@ a{
   width:100%;
   height: .5rem;
   margin:1rem 0 0 0; 
+  background: #ecebeb;
+}
+.blanks{
+  width:100%;
+  height: .5rem;
   background: #ecebeb;
 }
 </style>

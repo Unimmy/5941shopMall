@@ -17,7 +17,7 @@ export default new Router({
     {path: '/type', name: 'type', component: type , meta: { navShow: true}},//分类
     {path: '/shoppingcart', name: 'shoppingcart', component:shoppingcart,meta: { navShow: true}},//购物车
     {path: '/mine', name: 'mine', component: mine,meta: { navShow: true}},//我的
-    {path: '/login', name: 'login', component: login,meta: { navShow: false}},//登录
-    {path: '/kindof/:largeclass', component: kindof,meta: { navShow: false}},//分类
+    {path: '/login', name: 'login', component: login,meta: { navShow: true}},//登录
+    {path: '/kindof/:mk', component: kindof,meta: { navShow: false}},//分类
   ]
 })

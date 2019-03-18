@@ -138,7 +138,8 @@ export default {
             console.log(res.data)
             if(res.data.status==200){
               MessageBox.confirm(res.data.data,'客服电话').then(action=>{
-                window.location.href="tel:"+r.data;	//拨打电话
+                window.location.href="tel:"+res.data.data
+                ;	//拨打电话
                 }).catch(error=>console.log(error))
             }else{
                 MessageBox.confirm('还未登录请登录后使用','系统提示').then(action=>{
@@ -192,7 +193,7 @@ export default {
                  this.$router.push('/login')
                 }).catch(error=>console.log(error))
             }else{
-                if(!this.infos){
+                if(true){
                  MessageBox.confirm('请选择商品类型','系统提示')
                 }else{
                  

@@ -12,9 +12,14 @@
       }
     },
     methods:{
-   
+    redirect(){
+       if(this.$store.state.phone==""){
+         this.$router.push('/login')
+       }
+     }
     },
     created(){
+      this.redirect()
     },
     components:{}
   }

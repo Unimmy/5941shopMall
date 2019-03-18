@@ -1,9 +1,9 @@
 <template>
     <div id="login">
     <mt-header fixed title="登录">
-        <div slot="left">
+        <!-- <div slot="left">
             <mt-button  icon="back" @click="$router.back(-1)"></mt-button>
-        </div>
+        </div> -->
     </mt-header>
        <div class="container">
             <div class="logoBox">  
@@ -49,7 +49,10 @@ methods:{
            if(res.data.status==200){
                MessageBox.alert('登录成功!').then(action => {
                    this.$store.state.phone = this.sendInfo.phone
-                   this.$router.back(-1)
+                   console.log(res.data.data)
+                   this.$store.state.headpic = res.data.data.portrait
+                    this.$store.state.nickname = res.data.data.nickname
+                    this.$router.back(-1)
                 }).catch(error=>console.log(error))
            }else{
                 MessageBox.alert(res.data.message)
