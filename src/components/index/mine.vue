@@ -42,7 +42,6 @@
           <p>我的地址</p>
         </div>   
     </div>
-    <div class="blanks"></div>
   </div>
 </template>
 
